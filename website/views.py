@@ -142,7 +142,7 @@ def lipa_mpesa():
             "PartyB":"174379",    
             "PhoneNumber":number,    
             "CallBackURL":base_url,    
-            "AccountReference":"EAZZYLOAN-254",    
+            "AccountReference":"BILLIONBABY-LOANS",    
             "TransactionDesc":"Fee Payment"
             }
         # print(number)
