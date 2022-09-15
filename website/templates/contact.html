@@ -1,0 +1,305 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>BILLION-BABY FINANCIAL LOANS | Contact </title>
+        <meta name="description" content="Fill free to contact us incase of any inquiry.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'website/assets/img/favicon.ico'%}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'website/assets/css/bootstrap.min.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/owl.carousel.min.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/slicknav.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/flaticon.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/animate.min.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/magnific-popup.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/fontawesome-all.min.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/themify-icons.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/slick.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/nice-select.css'%}">
+            <link rel="stylesheet" href="{% static 'website/assets/css/style.css'%}">
+   </head>
+
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="{% url 'home' %}"><img src="{% static 'website/assets/img/logo/logo.png'%}" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+                <div class="main-header  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{% static 'website/assets/img/logo/log.png'%}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">  
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            
+                                            <li><a href="{% url 'services' %}">Services</a></li>
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <!-- <li><a href="blog.html">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                    <li><a href="apply.html">Apply Now</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="header-right-btn f-right d-none d-lg-block">
+                                    <a href="{% url 'apply' %}" class="btn header-btn">APPLY NOW </a>
+                                </div>
+                            </div>
+                            </div>   
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+        <!-- Hero Start-->
+        <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center pt-50">
+                            <h2>Contact Us</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- ================ contact section start ================= -->
+        <br/><br/>
+        {% if name %}
+        <center>
+            <h2>Thanks {{ name }}!</h2>
+            <p>We received your email and will respond shortly...</p>
+        </center>
+        <br/><br/>
+        {% else %}
+
+        <section class="contact-section">
+            <div class="container">
+ 
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title">Get in Touch</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <form action="{% url 'contact' %}" method="post" class="form-contact contact_form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="text" name="name" class="form-control valid" id="name" placeholder="Your Name"
+                                           required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="email" class="form-control valid" name="email" id="email"
+                                           placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control w-100" rows="10" name="message" id="message" placeholder="Write Your Message Here"
+                                          required></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="button button-contactForm boxed-btn">Send Message</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <!-- <div class="col-lg-3 offset-lg-1">
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <div class="media-body">
+                                <h3>Buttonwood, California.</h3>
+                                <p>Rosemead, CA 91770</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+                                <h3>+1 253 565 2365</h3>
+                                <p>Mon to Fri 9am to 6pm</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                                <h3>support@colorlib.com</h3>
+                                <p>Send us your query anytime!</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        <!-- ================ contact section end ================= -->
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+               <div class="footer-top footer-padding">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo">
+                                        <a href="{% url 'home' %}"><img src="{% static 'website/assets/img/logo/logo2_footer.png' %}" alt=""></a>
+                                    </div>
+                                    <div class="footer-pera">
+                                        <p>Welcome to EAZZY LOANS 247 where you get access to hassle free loans.</p>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Link</h4>
+                                    <ul>
+                                        <li><a href="{% url 'about' %}">About</a></li>
+                                        <!-- <li><a href="#">Offers & Discounts</a></li>
+                                        <li><a href="#">Get Coupon</a></li> -->
+                                        <li><a href="{% url 'contact' %}"> Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>New Products</h4>
+                                    <ul>
+                                        <li><a href="#">Woman Cloth</a></li>
+                                        <li><a href="#">Fashion Accessories</a></li>
+                                        <li><a href="#">Man Accessories</a></li>
+                                        <li><a href="#">Rubber made Toys</a></li>     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Support</h4>
+                                    <ul>
+                                        <li><a href="#">Frequently Asked Questions</a></li>
+                                        <!-- <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#"> Privacy Policy</a></li> --> 
+                                        <li><a href="{% url 'contact' %}">Report a Payment Issue</a></li>     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | EAZZY LOANS 247. Developed  by <a href="https://smextech.co.ke" target="_blank">Snex-Tech Solutions</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{% url 'home' %}"><i class="fas fa-globe"></i></a>
+                                <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'website/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'website/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'website/assets/js/popper.min.js' %}"></script>
+        <script src="{% static 'website/assets/js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'website/assets/js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'website/assets/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'website/assets/js/slick.min.js' %}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'website/assets/js/wow.min.js' %}"></script>
+		<script src="{% static 'website/assets/js/animated.headline.js' %}"></script>
+		
+		<!-- Nice-select, sticky -->
+        <script src="{% static 'website/assets/js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'website/assets/js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'website/assets/js/jquery.magnific-popup.js' %}"></script>
+
+        <!-- contact js -->
+        <script src="{% static 'website/assets/js/contact.js' %}"></script>
+        <script src="{% static 'website/assets/js/jquery.form.js' %}"></script>
+        <script src="{% static 'website/assets/js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'website/assets/js/mail-script.js' %}"></script>
+        <script src="{% static 'website/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'website/assets/js/plugins.js' %}"></script>
+        <script src="{% static 'website/assets/js/main.js' %}"></script>
+
+    </body>
+    
+</html>
