@@ -111,16 +111,17 @@ def lipa_mpesa():
     #Mpesa details
         consumer_key = config('consumer_key')
         consumer_secret = config('consumer_secret')
-        base_url = 'https://darajambili.herokuapp.com/api/payments/lnm/'
+        base_url = 'https://billionbabyloans.herokuapp.com/api/payments/lnm/'
 
         mpesa_endpoint = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
         access_token = ac_token()
         saa = datetime.datetime.now()
         timestamp_format = saa.strftime("%Y%m%d%H%M%S")
         # phone = PHONE.get()
-        businessshortcode = config('businessshortcode')
+        businessshortcode = "174379"
 
         passkey = config('passkey') #pass_key
+        
 
         pd_decode = businessshortcode+passkey+timestamp_format
 
@@ -132,19 +133,19 @@ def lipa_mpesa():
         print(access_token)
         request_body = {
 
-            "BusinessShortCode":businessshortcode,    
+            "BusinessShortCode":"174379",    
             "Password": pd,    
             "Timestamp":timestamp_format,    
             "TransactionType": "CustomerPayBillOnline",    
             "Amount":amount,    
             "PartyA":number,    
-            "PartyB":businessshortcode,    
+            "PartyB":"174379",    
             "PhoneNumber":number,    
             "CallBackURL":base_url,    
             "AccountReference":"EAZZYLOAN-254",    
             "TransactionDesc":"Fee Payment"
             }
-        print(number)
+        # print(number)
 
         lipa_response = requests.post(mpesa_endpoint, json = request_body, headers=headers)
         return lipa_response.json()
