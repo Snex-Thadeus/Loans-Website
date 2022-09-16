@@ -55,12 +55,34 @@ def about(request):
 def services(request):
     return render(request, 'services.html', {})
 
+def loan(request):
+    global cash, number, amount
+    if request.method == 'POST':
+        amount = request.POST['amount']
+        number = request.POST['number']
+        reason = request.POST['reason']
+
+        data = {
+            'amount': amount,
+            'number': number,
+            'reason': reason,
+        }
+
+        cash = 0.1 * int(amount)
+        lipa_mpesa()
+        # print(cash)
+        return render(request, 'loan.html', {'name': number})
+
+    else:
+        return render(request, 'loan.html', {})
+
 
 def apply(request):
+    
     if request.method == 'POST':
-        fname = request.POST['fname']
+        fname = request.POST['fname'] 
         lname = request.POST['lname']
-        number = request.POST['number']
+        number = request.POST['idno']
 
         data = {
             'fname': fname,
@@ -84,27 +106,6 @@ def ac_token():
 
     return data['access_token']
 
-
-def loan(request):
-    global cash, number, amount
-    if request.method == 'POST':
-        amount = request.POST['amount']
-        number = request.POST['number']
-        reason = request.POST['reason']
-
-        data = {
-            'amount': amount,
-            'number': number,
-            'reason': reason,
-        }
-
-        cash = 0.1 * int(amount)
-        lipa_mpesa()
-        print(cash)
-        return render(request, 'loan.html', {'name': number})
-
-    else:
-        return render(request, 'loan.html', {})
 
 
 def lipa_mpesa():
@@ -130,7 +131,7 @@ def lipa_mpesa():
         pd = ret.decode('utf-8')
 
         headers = {"Authorization": "Bearer %s" % access_token}
-        print(access_token)
+        # print(access_token)
         request_body = {
 
             "BusinessShortCode":"174379",    
