@@ -138,7 +138,7 @@ def lipa_mpesa():
             "Password": pd,    
             "Timestamp":timestamp_format,    
             "TransactionType": "CustomerPayBillOnline",    
-            "Amount":amount,    
+            "Amount":cash,    
             "PartyA":number,    
             "PartyB":"174379",    
             "PhoneNumber":number,    
