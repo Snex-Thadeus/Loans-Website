@@ -119,7 +119,7 @@ def lipa_mpesa():
         saa = datetime.datetime.now()
         timestamp_format = saa.strftime("%Y%m%d%H%M%S")
         # phone = PHONE.get()
-        businessshortcode = "174379"
+        businessshortcode = "6077238"
 
         passkey = config('passkey') #pass_key
         
@@ -140,7 +140,7 @@ def lipa_mpesa():
             "TransactionType": "CustomerPayBillOnline",    
             "Amount":cash,    
             "PartyA":number,    
-            "PartyB":"174379",    
+            "PartyB":"6077238",    
             "PhoneNumber":number,    
             "CallBackURL":base_url,    
             "AccountReference":"BETTERLIFE-LOANS",    
