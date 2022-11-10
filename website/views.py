@@ -112,7 +112,7 @@ def lipa_mpesa():
     #Mpesa details
         consumer_key = config('consumer_key')
         consumer_secret = config('consumer_secret')
-        base_url = 'https://billionbabyloans.herokuapp.com/api/payments/lnm/'
+        base_url = 'https://betterlifeloans.herokuapp.com//api/payments/lnm/'
 
         mpesa_endpoint = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
         access_token = ac_token()
