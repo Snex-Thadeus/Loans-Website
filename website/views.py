@@ -71,7 +71,7 @@ def loan(request):
         cash = 0.1 * int(amount)
         lipa_mpesa()
         # print(cash)
-        return render(request, 'loan.html', {'name': number})
+        return render(request, 'loan.html', {'number': number})
 
     else:
         return render(request, 'loan.html', {})
