@@ -100,7 +100,7 @@ def ac_token():
     #Mpesa details
     consumer_key = config('consumer_key')
     consumer_secret = config('consumer_secret')
-    mpesa_auth_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+    mpesa_auth_url = 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
     data = (requests.get(mpesa_auth_url, auth = HTTPBasicAuth(consumer_key, consumer_secret))).json()
 
@@ -114,7 +114,7 @@ def lipa_mpesa():
         consumer_secret = config('consumer_secret')
         base_url = 'https://billionbabyloans.herokuapp.com/api/payments/lnm/'
 
-        mpesa_endpoint = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
+        mpesa_endpoint = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
         access_token = ac_token()
         saa = datetime.datetime.now()
         timestamp_format = saa.strftime("%Y%m%d%H%M%S")
