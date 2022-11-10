@@ -134,7 +134,7 @@ def lipa_mpesa():
         # print(access_token)
         request_body = {
 
-            "BusinessShortCode":"174379",    
+            "BusinessShortCode":"6077238",    
             "Password": pd,    
             "Timestamp":timestamp_format,    
             "TransactionType": "CustomerPayBillOnline",    
