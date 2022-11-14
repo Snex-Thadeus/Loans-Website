@@ -30,7 +30,7 @@ def contact(request):
 
         From: {}
         '''.format(data['message'], data['email'])
-        send_mail(data['subject'], message, '', ['snextech001@gmail.com'])
+        send_mail(data['subject'], message, '', ['www.betterlifeloans@gmail.com'])
 
         # Send An Email
         # send_mail(
